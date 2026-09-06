@@ -19,6 +19,9 @@ const body = `# Broadifi Technologies
 - [TerCTL](https://terctl.dev): open-source desktop SSH terminal built with Tauri and React.
 - [All open source](${SITE_URL}/open-source)
 
+## Team
+- [Team](${SITE_URL}/team): senior engineers in Kolkata who are also writers, musicians, poets, and trekkers.
+
 ## Facts
 - Founded 2019, Kolkata, India. Bootstrapped. 11 to 50 people.
 - ISO 9001:2015 certified. DPIIT recognized.

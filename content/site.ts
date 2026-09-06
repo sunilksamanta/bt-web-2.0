@@ -40,6 +40,7 @@ export const narrativeNav = [
   { href: "/stacks", label: "Development stacks" },
   { href: "/open-source", label: "Open source" },
   { href: "/internal-systems", label: "Internal systems" },
+  { href: "/team", label: "Team" },
 ];
 
 export const nav = [
@@ -316,7 +317,7 @@ export const contact = {
   title: "Have something worth building?",
   cta: "Book a call",
   columns: [
-    { label: "company /", links: [{ label: "About", href: "/#about" }, { label: "Work", href: "/#work" }, { label: "Services", href: "/services" }] },
+    { label: "company /", links: [{ label: "About", href: "/#about" }, { label: "Work", href: "/#work" }, { label: "Services", href: "/services" }, { label: "Team", href: "/team" }] },
     { label: "narratives /", links: narrativeNav.map((n) => ({ label: n.label, href: n.href })) },
     {
       label: "code /",

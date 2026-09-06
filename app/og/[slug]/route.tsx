@@ -1,14 +1,15 @@
 import { ImageResponse } from "next/og";
 import { narrativeBySlug, narratives } from "@/content/narratives";
+import { teamPage } from "@/content/team";
 
 export const dynamic = "force-static";
 export function generateStaticParams() {
-  return narratives.map((n) => ({ slug: n.slug }));
+  return [...narratives.map((n) => ({ slug: n.slug })), { slug: "team" }];
 }
 
 export async function GET(_req: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const n = narrativeBySlug[slug];
+  const n = slug === "team" ? { tab: "people /", ogTitle: teamPage.ogTitle } : narrativeBySlug[slug];
   if (!n) return new Response("Not found", { status: 404 });
   const long = n.ogTitle.length > 48;
   return new ImageResponse(

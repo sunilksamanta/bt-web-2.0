@@ -3,8 +3,8 @@ import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 const base = process.argv[2] ?? "http://localhost:3111";
-const routes = ["/", "/services", "/vibe-coding-rescue", "/devops-and-cloud-cost", "/ai-solutions", "/stacks", "/open-source", "/internal-systems"];
-const narrative = routes.filter((r) => r !== "/");
+const routes = ["/", "/team", "/services", "/vibe-coding-rescue", "/devops-and-cloud-cost", "/ai-solutions", "/stacks", "/open-source", "/internal-systems"];
+const narrative = routes.filter((r) => r !== "/" && r !== "/team");
 const banned = /\b(unleash|supercharge|revolutionize|disrupt|10x|ninja|rockstar|family|cutting-edge|seamless|world-class|best-in-class)\b/i;
 const failures = [];
 const todos = [];
@@ -49,13 +49,13 @@ for (const r of routes) {
   for (const s of graph.filter((n) => types(n).includes("Service"))) if (s.provider?.["@id"] !== org?.["@id"]) fail(r, `Service ${s.name} missing provider ref`);
   if (!graph.some((n) => types(n).includes("BreadcrumbList"))) fail(r, "no BreadcrumbList");
   const faqNode = graph.find((n) => types(n).includes("FAQPage"));
-  if (!faqNode) fail(r, "no FAQPage");
+  if (!faqNode && r !== "/team") fail(r, "no FAQPage");
   const visibleQs = [...html.matchAll(/<summary class="qa__sum"><h3[^>]*>([\s\S]*?)<\/h3>/g)].map((m) => inline(m[1]));
   const visibleAs = [...html.matchAll(/<p class="qa__a">([\s\S]*?)<\/p>/g)].map((m) => inline(m[1]));
   const ldQs = (faqNode?.mainEntity ?? []).map((q) => q.name.trim());
   const ldAs = (faqNode?.mainEntity ?? []).map((q) => q.acceptedAnswer.text.trim());
-  if (JSON.stringify(visibleQs) !== JSON.stringify(ldQs)) fail(r, `FAQ questions differ between HTML and JSON-LD\n  html: ${JSON.stringify(visibleQs)}\n  ld:   ${JSON.stringify(ldQs)}`);
-  if (JSON.stringify(visibleAs) !== JSON.stringify(ldAs)) fail(r, "FAQ answers differ between HTML and JSON-LD");
+  if (r !== "/team" && JSON.stringify(visibleQs) !== JSON.stringify(ldQs)) fail(r, `FAQ questions differ between HTML and JSON-LD\n  html: ${JSON.stringify(visibleQs)}\n  ld:   ${JSON.stringify(ldQs)}`);
+  if (r !== "/team" && JSON.stringify(visibleAs) !== JSON.stringify(ldAs)) fail(r, "FAQ answers differ between HTML and JSON-LD");
   for (const q of faqNode?.mainEntity ?? []) if (!q.name || !q.acceptedAnswer?.text) fail(r, "FAQ question missing name/answer");
 
   const title = decode(html.match(/<title>([^<]*)<\/title>/)?.[1] ?? "");
@@ -72,7 +72,8 @@ for (const r of routes) {
   const mull = (body.match(/Mulltiply/g) ?? []).length;
   if (r !== "/" && mull > 1) fail(r, `Mulltiply mentioned ${mull} times`);
 
-  if (r !== "/") {
+  if (r === "/team") { if (!/Last updated: /.test(body)) fail(r, "no Last updated line"); }
+  if (r !== "/" && r !== "/team") {
     if (!/Last updated: /.test(body)) fail(r, "no Last updated line");
     const rel = html.match(/<nav class="related"[\s\S]*?<\/nav>/)?.[0] ?? "";
     const relLinks = [...rel.matchAll(/href="([^"]+)"/g)].map((m) => m[1]);

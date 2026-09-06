@@ -24,7 +24,7 @@ Set `NEXT_PUBLIC_SITE_URL` (see `.env.example`) to the canonical domain. It driv
 
 Seven narrative landing pages are generated from `content/narratives/*.ts` by `components/narrative/NarrativePage.tsx`:
 `/services`, `/vibe-coding-rescue`, `/devops-and-cloud-cost`, `/ai-solutions`, `/stacks`, `/open-source`, `/internal-systems`.
-Each ships its own metadata, OG image (`/og/<slug>`), and JSON-LD graph. Validate with:
+Each ships its own metadata, OG image (`/og/<slug>`), and JSON-LD graph. The team page lives at `/team` (`content/team.ts`, `components/team/`). Validate with:
 
 ```bash
 node scripts/check-narratives.mjs http://localhost:3000

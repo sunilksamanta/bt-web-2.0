@@ -17,7 +17,8 @@
 - [ ] Confirm CalmAPI install command, Ognom repo URL and license, TerCTL license.
 - [ ] Confirm mobile stack (React Native or Flutter) on `/stacks`.
 - [ ] Project screenshots for the Work and Open Source cards.
-- [ ] Team photos, then the Team page.
+- [x] Team page at `/team` (dummy names, placeholder photos and artifacts).
+- [ ] Real team names, roles, photos, and one artifact per person, each with that person's permission.
 - [ ] Clutch and npm org URLs for the Organization `sameAs`.
 
 ## Later

@@ -16,6 +16,11 @@ Next.js 16 App Router site for Broadifi Technologies. Landing page only so far; 
 - Only projects present in the design are shown: Mulltiply, SkillDrift, Mockshala, Töölö, AliciaBots.
 - Primary CTA is "Book a call". No superlatives, no metrics without real data (see doc section 11).
 
+## Team page
+
+- `/team` is built from `content/team.ts` and `components/team/TeamPage.tsx`. Names are dummy placeholders until real members are confirmed. Every photo, poem, recording, or image is published only with that person's explicit permission.
+- Do not change the Kolkata line: "We work from Kolkata, a city that has always taken its engineers and its poets equally seriously."
+
 ## Structure
 
 - `components/sections/*` are server components, one per stratum.
