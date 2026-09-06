@@ -87,7 +87,7 @@ export function narrativeGraph(n: Narrative) {
   return nodes;
 }
 
-function BlockView({ b, tone }: { b: Block; tone: (typeof tones)[number] }) {
+function BlockView({ b, tone, z }: { b: Block; tone: (typeof tones)[number]; z: number }) {
   const id = idOf(b.tab);
   const head = (
     <>
@@ -98,14 +98,14 @@ function BlockView({ b, tone }: { b: Block; tone: (typeof tones)[number] }) {
   switch (b.kind) {
     case "bullets":
       return (
-        <Stratum id={id} label={b.tab} tone={tone}>
+        <Stratum id={id} label={b.tab} tone={tone} zIndex={z}>
           {head}
           <ul className="bul">{b.items.map((t) => <li key={t}><span><Rich text={t} /></span></li>)}</ul>
         </Stratum>
       );
     case "steps":
       return (
-        <Stratum id={id} label={b.tab} tone={tone}>
+        <Stratum id={id} label={b.tab} tone={tone} zIndex={z}>
           {head}
           <ol className="steps" style={{ listStyle: "none", padding: 0, margin: 0 }}>
             {b.steps.map((s, i) => (
@@ -120,7 +120,7 @@ function BlockView({ b, tone }: { b: Block; tone: (typeof tones)[number] }) {
       );
     case "prose":
       return (
-        <Stratum id={id} label={b.tab} tone={b.tab.startsWith("proof") ? "dark" : tone}>
+        <Stratum id={id} label={b.tab} tone={b.tab.startsWith("proof") ? "dark" : tone} zIndex={z}>
           {head}
           <div className={b.diff ? "prose--grid" : undefined}>
             <div className="prose">
@@ -133,7 +133,7 @@ function BlockView({ b, tone }: { b: Block; tone: (typeof tones)[number] }) {
       );
     case "offer":
       return (
-        <Stratum id="offer" label={b.tab} tone={tone}>
+        <Stratum id="offer" label={b.tab} tone={tone} zIndex={z}>
           {head}
           <div className="prose">
             {b.paragraphs.map((p) => <p key={p}><Rich text={p} /></p>)}
@@ -146,7 +146,7 @@ function BlockView({ b, tone }: { b: Block; tone: (typeof tones)[number] }) {
       );
     case "rules":
       return (
-        <Stratum id={id} label={b.tab} tone={tone}>
+        <Stratum id={id} label={b.tab} tone={tone} zIndex={z}>
           {head}
           <div className="rules" style={{ marginTop: 0, borderTop: "none", paddingTop: 0 }}>
             <ol className="rules__list">{b.rules.map((r) => <li key={r}>{r}</li>)}</ol>
@@ -156,7 +156,7 @@ function BlockView({ b, tone }: { b: Block; tone: (typeof tones)[number] }) {
       );
     case "cards":
       return (
-        <Stratum id={id} label={b.tab} tone={tone}>
+        <Stratum id={id} label={b.tab} tone={tone} zIndex={z}>
           {head}
           <div className="ncards">
             {b.cards.map((c) => (
@@ -208,9 +208,9 @@ export function NarrativePage({ n }: { n: Narrative }) {
         </header>
 
         <main>
-          {n.blocks.map((b, i) => <BlockView key={b.tab + b.h2} b={b} tone={tones[i % 2]} />)}
+          {n.blocks.map((b, i) => <BlockView key={b.tab + b.h2} b={b} tone={tones[i % 2]} z={i + 2} />)}
 
-          <Stratum id="faq" label="faq /" tone="light" className="faq" headClassName="faq__head" ariaLabel="Frequently asked questions">
+          <Stratum id="faq" label="faq /" tone="light" className="faq" headClassName="faq__head" ariaLabel="Frequently asked questions" zIndex={n.blocks.length + 2}>
             <h2 className="h2 faq__title">{n.faq.h2}</h2>
             <div className="faq__list">
               {n.faq.items.map((item, i) => (
@@ -225,7 +225,7 @@ export function NarrativePage({ n }: { n: Narrative }) {
             </div>
           </Stratum>
 
-          <Stratum id="related" label="related /" tone="dark" ariaLabel="Related narratives">
+          <Stratum id="related" label="related /" tone="dark" ariaLabel="Related narratives" zIndex={n.blocks.length + 3}>
             <h2 className="h2 nblock__h2">Read next</h2>
             <nav className="related" aria-label="Related pages">
               {related.map((r) => (

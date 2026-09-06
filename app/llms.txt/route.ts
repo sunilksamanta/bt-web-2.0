@@ -14,7 +14,7 @@ const body = `# Broadifi Technologies
 
 ## Open source
 - [CalmAPI](https://calmapi.dev): production-ready modular Node.js REST API framework, MIT.
-- [Ognom](${company.social.github}): free native MongoDB client with visual aggregation builder and AI-assisted query fixing.
+- [Ognom](https://ognom.dev): free native MongoDB client with visual aggregation builder and AI-assisted query fixing.
 - [TerCTL](https://terctl.dev): open-source desktop SSH terminal built with Tauri and React.
 - [All open source](${SITE_URL}/open-source)
 

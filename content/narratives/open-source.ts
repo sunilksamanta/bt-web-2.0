@@ -34,8 +34,11 @@ export const openSourcePage: Narrative = {
           title: "Ognom",
           chip: "native /",
           body: "Free, native, open-source MongoDB client. Visual aggregation builder, AI-assisted query fixing, encryption. [[TODO: repo URL and license]]",
-          code: "download: [[TODO: release URL]]",
-          links: [{ label: "Repository", href: "https://github.com/broadifi" }],
+          code: "download: ognom.dev",
+          links: [
+            { label: "ognom.dev", href: "https://ognom.dev" },
+            { label: "Repository", href: "https://github.com/broadifi" },
+          ],
         },
         {
           title: "TerCTL",
@@ -72,7 +75,7 @@ export const openSourcePage: Narrative = {
   schema: {
     software: [
       { name: "CalmAPI", description: "Production-ready, modular Node.js REST API framework with layered Controller-Service-Model architecture, auto-routing, DTOs, JWT auth, and CLI module generation.", url: "https://calmapi.dev", codeRepository: "https://github.com/broadifi", downloadUrl: "https://www.npmjs.com/package/calmapi", license: "https://opensource.org/licenses/MIT", operatingSystem: "Linux, macOS, Windows", applicationCategory: "DeveloperApplication" },
-      { name: "Ognom", description: "Free, native, open-source MongoDB client with a visual aggregation builder, AI-assisted query fixing, and encryption.", url: "https://github.com/broadifi", codeRepository: "https://github.com/broadifi", operatingSystem: "Linux, macOS, Windows", applicationCategory: "DeveloperApplication" },
+      { name: "Ognom", description: "Free, native, open-source MongoDB client with a visual aggregation builder, AI-assisted query fixing, and encryption.", url: "https://ognom.dev", downloadUrl: "https://ognom.dev", codeRepository: "https://github.com/broadifi", operatingSystem: "Linux, macOS, Windows", applicationCategory: "DeveloperApplication" },
       { name: "TerCTL", description: "Open-source desktop SSH terminal built with Tauri and React. Clean, fast, privacy-friendly.", url: "https://terctl.dev", codeRepository: "https://github.com/broadifi", downloadUrl: "https://terctl.dev", operatingSystem: "Linux, macOS, Windows", applicationCategory: "DeveloperApplication" },
     ],
   },

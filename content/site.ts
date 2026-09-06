@@ -174,8 +174,8 @@ export const openSource = {
       kind: "native /",
       description:
         "A free, native, open-source MongoDB client with a visual aggregation builder, AI-assisted query fixing, and proper encryption. Our own proof that we build with AI, not around it.",
-      url: "https://github.com/broadifi",
-      linkLabel: "github.com/broadifi",
+      url: "https://ognom.dev",
+      linkLabel: "ognom.dev",
       demo: { type: "shot", label: "screenshot / ognom aggregation builder" },
     },
     {
@@ -347,7 +347,7 @@ export const contact = {
       label: "code /",
       links: [
         { label: "CalmAPI", href: "https://calmapi.dev" },
-        { label: "Ognom", href: "https://github.com/broadifi" },
+        { label: "Ognom", href: "https://ognom.dev" },
         { label: "TerCTL", href: "https://terctl.dev" },
       ],
     },
