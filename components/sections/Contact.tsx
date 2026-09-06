@@ -11,7 +11,7 @@ export function Contact({ lastUpdated }: { lastUpdated?: string } = {}) {
       </div>
       <div className="contact__divider" aria-hidden="true" />
       <footer className="footer">
-        <div className="footer__col">
+        <div className="footer__col footer__col--brand">
           <span className="footer__brand">broadifi</span>
           <address className="footer__addr">
             <span>{company.address.street}, {company.address.locality} {company.address.postalCode}</span>
