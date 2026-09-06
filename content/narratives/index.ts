@@ -5,8 +5,9 @@ import { aiSolutions } from "./ai-solutions";
 import { stacks } from "./stacks";
 import { openSourcePage } from "./open-source";
 import { internalSystems } from "./internal-systems";
+import { servicesPage } from "./services";
 
-export const narratives: Narrative[] = [vibeCodingRescue, devopsAndCloudCost, aiSolutions, stacks, openSourcePage, internalSystems];
+export const narratives: Narrative[] = [servicesPage, vibeCodingRescue, devopsAndCloudCost, aiSolutions, stacks, openSourcePage, internalSystems];
 
 export const narrativeByPath = Object.fromEntries(narratives.map((n) => [n.path, n])) as Record<string, Narrative>;
 export const narrativeBySlug = Object.fromEntries(narratives.map((n) => [n.slug, n])) as Record<string, Narrative>;

@@ -1,4 +1,5 @@
-import { SITE_URL, company, faq, openSource, work, services } from "@/content/site";
+import { SITE_URL, company, faq, openSource, work } from "@/content/site";
+import { allServices } from "@/content/services";
 
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const SITE_ID = `${SITE_URL}/#website`;
@@ -97,9 +98,10 @@ export function buildHomeGraph() {
     "@type": "OfferCatalog",
     "@id": `${SITE_URL}/#services`,
     name: "Services",
-    itemListElement: services.items.map((s) => ({
+    url: `${SITE_URL}/services`,
+    itemListElement: allServices.map((s) => ({
       "@type": "Offer",
-      itemOffered: { "@type": "Service", name: s.title, description: s.body, provider: { "@id": ORG_ID } },
+      itemOffered: { "@type": "Service", name: s.title, description: s.body, url: `${SITE_URL}${s.href ?? "/services"}`, provider: { "@id": ORG_ID } },
     })),
   };
 

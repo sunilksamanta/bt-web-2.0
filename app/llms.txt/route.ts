@@ -6,6 +6,7 @@ const body = `# Broadifi Technologies
 > Next-generation development shop in Kolkata, India, founded 2019. Ships production software fast on architecture built to scale gradually and cost less to run, using AI under strict human rules. Maintains open-source tools CalmAPI, Ognom, and TerCTL.
 
 ## Services
+- [All services](${SITE_URL}/services): the full list of what Broadifi takes on.
 - [Vibe coding rescue](${SITE_URL}/vibe-coding-rescue): audit and production hardening for AI-generated codebases.
 - [DevOps and cloud cost](${SITE_URL}/devops-and-cloud-cost): Kubernetes, monitoring, and cloud cost engineering; no vendor lock-in.
 - [AI solutions](${SITE_URL}/ai-solutions): agents, RAG, LLM features, and voice agents in production under human rules.

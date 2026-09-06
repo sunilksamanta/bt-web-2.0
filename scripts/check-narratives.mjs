@@ -3,7 +3,7 @@ import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 const base = process.argv[2] ?? "http://localhost:3111";
-const routes = ["/", "/vibe-coding-rescue", "/devops-and-cloud-cost", "/ai-solutions", "/stacks", "/open-source", "/internal-systems"];
+const routes = ["/", "/services", "/vibe-coding-rescue", "/devops-and-cloud-cost", "/ai-solutions", "/stacks", "/open-source", "/internal-systems"];
 const narrative = routes.filter((r) => r !== "/");
 const banned = /\b(unleash|supercharge|revolutionize|disrupt|10x|ninja|rockstar|family|cutting-edge|seamless|world-class|best-in-class)\b/i;
 const failures = [];

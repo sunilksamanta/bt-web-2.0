@@ -33,6 +33,7 @@ export const company = {
 };
 
 export const narrativeNav = [
+  { href: "/services", label: "All services" },
   { href: "/vibe-coding-rescue", label: "Vibe coding rescue" },
   { href: "/devops-and-cloud-cost", label: "DevOps and cloud cost" },
   { href: "/ai-solutions", label: "AI solutions" },
@@ -234,32 +235,6 @@ export const workflow = {
 
 export const services = {
   title: "What we take on",
-  items: [
-    {
-      title: "Web & Mobile",
-      body: "From first release to scale, on architecture that grows with your users, not ahead of them.",
-    },
-    {
-      title: "SaaS",
-      body: "Multi-tenant platforms, billing, roles, integrations, and the unglamorous parts that decide whether it scales.",
-    },
-    {
-      title: "AI & Automation",
-      body: "Conversational commerce, intelligent workflows, LLM features in production, with a human accountable for the output.",
-    },
-    {
-      title: "Cloud & DevOps",
-      body: "Infrastructure that scales without your bill doing the same. AWS, GCP, Azure, or your own metal. Migration off any vendor.",
-    },
-    {
-      title: "Web3",
-      body: "Smart contracts and distributed ledger systems, including Hedera. Delivered, not whitepapered.",
-    },
-    {
-      title: "GIS & Logistics",
-      body: "Navigation, route optimisation, and supply-chain platforms where a wrong turn costs money.",
-    },
-  ],
 };
 
 export const efficiency = {
@@ -341,7 +316,7 @@ export const contact = {
   title: "Have something worth building?",
   cta: "Book a call",
   columns: [
-    { label: "company /", links: [{ label: "About", href: "/#about" }, { label: "Work", href: "/#work" }, { label: "Services", href: "/#services" }] },
+    { label: "company /", links: [{ label: "About", href: "/#about" }, { label: "Work", href: "/#work" }, { label: "Services", href: "/services" }] },
     { label: "narratives /", links: narrativeNav.map((n) => ({ label: n.label, href: n.href })) },
     {
       label: "code /",
