@@ -65,9 +65,9 @@ export const hero = {
 };
 
 export const about = {
-  lead: "Broadifi is a next-generation development shop from Kolkata, building production software for founders and product teams around the world since 2019.",
+  lead: "A next-gen dev shop from Kolkata. Since 2019.",
   body:
-    "We ship fast because we start from our own tools, on architecture that scales gradually and costs less to run. AI is our accelerant. Judgment is our product.",
+    "We build production software for founders and product teams around the world. We ship fast because we start from our own tools, on architecture that scales gradually and costs less to run. AI is our accelerant. Judgment is our product.",
 };
 
 export type Project = {
