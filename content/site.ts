@@ -146,14 +146,23 @@ export type Tool = {
   description: string;
   url: string;
   linkLabel: string;
-  demo: { type: "terminal"; lines: { prompt?: string; text: string; dim?: boolean }[] } | { type: "shot"; label: string };
+  /** Short facts shown next to the name. Only facts from the company profile. */
+  meta: string[];
+  /** Title shown in the demo window's title bar. */
+  window: string;
+  demo:
+    | { type: "terminal"; lines: { prompt?: string; text: string; dim?: boolean }[] }
+    | { type: "shot"; label: string }
+    | { type: "image"; src: string; alt: string; width: number; height: number };
 };
 
 export const openSource = {
   title: "We ship our tools too",
   intro: "Our open source spans a production API framework and native desktop tools, built and maintained in public.",
   insist: "Read our code before you hire us. We insist.",
+  alsoLabel: "also /",
   also: ["KrakenD plugin toolkit", "asLIT"],
+  githubLabel: "github.com/broadifi",
   tools: <Tool[]>[
     {
       name: "CalmAPI",
@@ -162,6 +171,8 @@ export const openSource = {
         "A production-ready, modular Node.js REST API framework. Layered Controller-Service-Model architecture, auto-routing, DTOs, JWT auth, and a CLI that generates a complete module in one command.",
       url: "https://calmapi.dev",
       linkLabel: "calmapi.dev",
+      meta: ["MIT", "npm", "Node.js"],
+      window: "calmapi / zsh",
       demo: {
         type: "terminal",
         lines: [
@@ -178,7 +189,15 @@ export const openSource = {
         "A free, native, open-source MongoDB client with a visual aggregation builder, AI-assisted query fixing, and proper encryption. Our own proof that we build with AI, not around it.",
       url: "https://ognom.dev",
       linkLabel: "ognom.dev",
-      demo: { type: "shot", label: "screenshot / ognom aggregation builder" },
+      meta: ["MongoDB", "native", "free"],
+      window: "ognom / shopdb.orders",
+      demo: {
+        type: "image",
+        src: "/open-source/ognom.png",
+        alt: "Ognom showing documents from the orders collection of a MongoDB database, with a Find query for paid orders over 120 and the index plan it used",
+        width: 1800,
+        height: 1008,
+      },
     },
     {
       name: "TerCTL",
@@ -186,6 +205,8 @@ export const openSource = {
       description: "Open-source desktop SSH terminal. Clean, fast, privacy-friendly. Built with Tauri and React.",
       url: "https://terctl.dev",
       linkLabel: "terctl.dev",
+      meta: ["Tauri", "React", "SSH"],
+      window: "terctl / deploy@prod-01",
       demo: {
         type: "terminal",
         lines: [
